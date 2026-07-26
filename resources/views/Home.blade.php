@@ -7,6 +7,7 @@
 <body>
 
     @auth
+
         <p>Jesteś zalogowany</p>
         <form action="/logout" method="POST">
         @csrf
