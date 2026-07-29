@@ -2,9 +2,11 @@ Prosta gra inspirowana starymi grami przeglądarkowymi typu Plemiona.
 
 Atkualnie działa:
 -system logowania z prostą tabelą na użytkowników
--niby jest pasek nagiwacyjny do podstron ale jeszcze nie działa, trzeba dodać routingi
+-Pasek nawigacji z routingami w pełni działa relatywnie 
+
 
 
 Kolejnym krokiem są podstawy mechaniki to jest tabele z zasobami i wioską użytkownika
-Aby użytkownik po zalogowaniu widział swoją wioskę
-Proste działające mechaniki ulepszania budynków, nabijających się surowców itp.
+Potem prosta wioska przypisana do użytkownika którą zobaczy po zalogowaniu
+Proste działające: Zbierają się surowce graczowi które zapisują się w bazie danych, gracz może je wydać na 
+ulepszanie budynków, ulpeszenie np. tartaku przyśpiesza przyrost drewna, a kolejne ulepszenia wymagają więcej surowców

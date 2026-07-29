@@ -1,4 +1,4 @@
-@xtends('layouts.app')
+@extends('layouts.app')
 
 @section('title', 'Wioska')
 
