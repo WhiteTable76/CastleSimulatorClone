@@ -31,6 +31,7 @@ class UserController extends Controller
         $incomingFields = $request->validate([
             'name' => ['required', 'min:3', Rule::unique('users', 'name')],
             'email' => ['required','email', Rule::unique('users', 'email')],
+            'player_name' =>['required','min:3', Rule::unique('users', 'player_name')],
             'password' => ['required', 'min:8', 'max:100']
         ]);
 

@@ -10,6 +10,7 @@
             <form action="/register" method="POST">
                 @csrf
                 <input name="name" type="text" placeholder="login">
+                <input name="player_name" type="text" placeholder="player name">
                 <input name="email" type="text" placeholder="email">
                 <input name="password" type="password" placeholder="password">
                 <button>Register</button>

@@ -9,6 +9,7 @@
 
     <nav style="border-bottom: 2px solid black; padding: 10px;">
         @auth
+            <a>Zalogowano jako: {{ auth()->user()->player_name }}</a>
             <a href="{{ route ('gracz') }}">Profil Gracza</a>
             <a href="{{ route ('wioska') }}">Wioska</a>
             <form action="/logout" method="POST" style="display:inline;">
