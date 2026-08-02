@@ -37,6 +37,16 @@ class UserController extends Controller
 
         $incomingFields['password'] = bcrypt($incomingFields['password']);
         $user = User::create($incomingFields);
+
+        $user->resources()->create([
+            'name' => $user->player_name . "'s resources",
+        ]);
+
+        $user->villages()->create([
+            'name' => $user->player_name . "'s village",
+        ]);
+
+
         auth()->login($user);
         return redirect('/');
 

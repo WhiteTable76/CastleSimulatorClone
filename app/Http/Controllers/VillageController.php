@@ -6,7 +6,15 @@ use Illuminate\Http\Request;
 
 class VillageController extends Controller
 {
+
     public function Village(){
-        return view('wioska');
+
+        $resources = auth()->user()->resources;
+        $villages = auth()->user()->villages;
+
+        return view('wioska', ['resources' => $resources], ['villages' => $villages]);
     }
+
+
+
 }

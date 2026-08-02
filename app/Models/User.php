@@ -29,4 +29,16 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function resources()
+    {
+        return $this->hasOne(Resources::class);
+    }
+
+        public function villages()
+    {
+        return $this->hasOne(Village::class);
+    }
+
 }
+
