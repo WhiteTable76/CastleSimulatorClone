@@ -23,3 +23,9 @@ Route::middleware('auth')->group(function(){
 Route::middleware('auth')->group(function(){
     Route::get('/gracz', [PlayerController::class, 'Player'])->name('gracz');
 });
+
+
+Route::middleware('auth')->group(function () {
+    Route::post('/village/upgrade-logging-site',
+    [VillageController::class, 'upgradeLoggingSite'])->name('village.upgradeLoggingSite');
+});

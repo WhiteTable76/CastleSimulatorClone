@@ -1,6 +1,7 @@
 Prosta gra inspirowana starymi grami przeglądarkowymi typu Plemiona.
 
 Atkualnie działa:
+
 -system logowania z prostą tabelą na użytkowników
 
 -Pasek nawigacji z routingami w pełni działa relatywnie 
@@ -13,10 +14,10 @@ Atkualnie działa:
 
 -Poniżej paska wyświetla się "budynek" z poziomem pobranym z bazy danych
 
-Następnym krokiem będzie implementacja systemu gdzie po kliknięciu przycisku ulepszenia budynku 
-rekord poziomu budynku w bazie danych zostanie zwiększony o 1, a od użytkownika odjęta zostanie odpowiednia ilość surowców, które wykorzystał na ulepszenie. 
+-Po kliknięciu w przycisk budynek się ulepsza natomiast jakiś błąd sprawia, że nie zabiera użytkownikowi surowców. Jutro poszukam odpowiedzi na to pytanie.
 
-Wtedy do pełnej funkcjonalności brakować będzie tylko pozyskiwania zasobów to jest ilość zasobów rośnie w czasie rzeczywistym zależnie od poziomu ulepszenia danego budynku to jest im wyższy poziom chaty drwala tym szybciej drewno się pozyskuje ( w przyszłości też innych czynników, przykładowo stworzenie ekwipunku gracza gdzie można ubierać przedmioty gwarantujące różne bonusy)
+
+Do pełnej funkcjonalności brakować będzie tylko pozyskiwania zasobów to jest ilość zasobów rośnie w czasie rzeczywistym zależnie od poziomu ulepszenia danego budynku to jest im wyższy poziom chaty drwala tym szybciej drewno się pozyskuje itp. ( w przyszłości też innych czynników, przykładowo stworzenie ekwipunku gracza gdzie można ubierać przedmioty gwarantujące różne bonusy)
 
 
 Kolejnym krokiem będzie wprowadzenie mechanik wojskowości. Przykładowo zbudowanie budynku "koszary" odblokuje na pasku nawigacji zakładkę "wojsko" gdzie następnie za zasoby będzie można rekturować jednostki (co będzie zapisywane w bazie danych) co pozwoli na prowadzenie ataków na dedykowane do tego zadania lochy, gdzie na podstawie formuł matematycznych będą obliczać prawdopodobieństwo powodzenia, w atakch będzie mozna zdobyć między innymi zasoby ale też wspomniany w poprzednim punkcie ekwipunek.
