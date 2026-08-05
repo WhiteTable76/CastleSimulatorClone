@@ -13,7 +13,7 @@ class VillageController extends Controller
         $resources = auth()->user()->resources;
         $villages = auth()->user()->villages;
 
-        return view('wioska', ['resources' => $resources], ['villages' => $villages]);
+        return view('wioska', ['resources' => $resources, 'villages' => $villages]);
     }
 
     public function upgradeLoggingSite()

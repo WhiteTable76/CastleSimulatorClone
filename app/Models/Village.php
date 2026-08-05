@@ -22,8 +22,8 @@ class Village extends Model
 
     public function KosztUlepszenia(): array{
 
-        $base = self::$BazowyKoszt[$this->type] ?? ['wood' => 0];
-        $factor = $this->multiplier ** ($this->level - 1);
+        $base = self::$BazowyKoszt['logging_site'] ?? ['wood' => 0];
+        $factor = $this->multiplier ** ($this->logging_site_level - 1);
 
         return [
             'wood' => (int) round($base['wood'] * $factor)

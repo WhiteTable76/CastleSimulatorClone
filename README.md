@@ -14,8 +14,7 @@ Atkualnie działa:
 
 -Poniżej paska wyświetla się "budynek" z poziomem pobranym z bazy danych
 
--Po kliknięciu w przycisk budynek się ulepsza natomiast jakiś błąd sprawia, że nie zabiera użytkownikowi surowców. Jutro poszukam odpowiedzi na to pytanie.
-
+-Po kliknięciu w przycisk budynek się ulepsza i zabiera graczowi odpowiednią ilość zasobów
 
 Do pełnej funkcjonalności brakować będzie tylko pozyskiwania zasobów to jest ilość zasobów rośnie w czasie rzeczywistym zależnie od poziomu ulepszenia danego budynku to jest im wyższy poziom chaty drwala tym szybciej drewno się pozyskuje itp. ( w przyszłości też innych czynników, przykładowo stworzenie ekwipunku gracza gdzie można ubierać przedmioty gwarantujące różne bonusy)
 
