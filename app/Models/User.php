@@ -35,7 +35,7 @@ class User extends Authenticatable
         return $this->hasOne(Resources::class);
     }
 
-        public function villages()
+        public function village()
     {
         return $this->hasOne(Village::class);
     }

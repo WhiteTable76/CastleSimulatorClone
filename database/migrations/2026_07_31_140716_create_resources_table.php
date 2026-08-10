@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->integer('wood')->default(300);
+            $table->timestamp('last_collected_at')->useCurrent();
             $table->timestamps();
         });
     }

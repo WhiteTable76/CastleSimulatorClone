@@ -30,4 +30,13 @@ class Village extends Model
         ];
     }
 
+    protected static float $productionBase = 20;
+    protected float $productionMultiplier = 1.2;
+
+    public function woodPerHour(): float
+    {
+        return self::$productionBase * ($this->productionMultiplier ** ($this->logging_site_level - 1));
+    }
+
+
 }

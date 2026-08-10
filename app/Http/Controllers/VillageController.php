@@ -11,25 +11,27 @@ class VillageController extends Controller
     public function Village(){
 
         $resources = auth()->user()->resources;
-        $villages = auth()->user()->villages;
+        $resources->collectPendingResources();
 
-        return view('wioska', ['resources' => $resources, 'villages' => $villages]);
+        $village = auth()->user()->village;
+
+        return view('wioska', ['resources' => $resources, 'village' => $village]);
     }
 
     public function upgradeLoggingSite()
     {
         $resources = auth()->user()->resources;
-        $villages = auth()->user()->villages;
+        $village = auth()->user()->village;
 
-        $cost = $villages->KosztUlepszenia();
+        $cost = $village->KosztUlepszenia();
 
         if ($resources->wood < $cost['wood']){
             return back()->with('error', 'za mało drewna!');
         }
 
-        DB::transaction(function() use ($resources, $villages, $cost){
+        DB::transaction(function() use ($resources, $village, $cost){
             $resources->decrement('wood', $cost['wood']);
-            $villages->increment('logging_site_level');
+            $village->increment('logging_site_level');
 
 
 
@@ -38,6 +40,9 @@ class VillageController extends Controller
         return back()->with('succes', 'Chata drwali ulepszona!');
 
     }
+
+
+
 
 
 }

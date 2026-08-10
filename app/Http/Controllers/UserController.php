@@ -39,12 +39,11 @@ class UserController extends Controller
         $user = User::create($incomingFields);
 
         $user->resources()->create([
-            'name' => $user->player_name . "'s resources",
+            'wood' => 300,
+            'last_collected_at' => now(),
         ]);
 
-        $user->villages()->create([
-            'name' => $user->player_name . "'s village",
-        ]);
+        $user->village()->create([]);
 
 
         auth()->login($user);

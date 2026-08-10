@@ -16,8 +16,16 @@ Atkualnie działa:
 
 -Po kliknięciu w przycisk budynek się ulepsza i zabiera graczowi odpowiednią ilość zasobów
 
-Do pełnej funkcjonalności brakować będzie tylko pozyskiwania zasobów to jest ilość zasobów rośnie w czasie rzeczywistym zależnie od poziomu ulepszenia danego budynku to jest im wyższy poziom chaty drwala tym szybciej drewno się pozyskuje itp. ( w przyszłości też innych czynników, przykładowo stworzenie ekwipunku gracza gdzie można ubierać przedmioty gwarantujące różne bonusy)
+-W użytkownikowi "ładuje się" ile ma danego zasobu
 
+-Prędkość zdobywania tego zasobu zależy od poziomu ulepszenia budynku związanego z tym zasobem
+
+Kolejny krok:
+
+Rozwinięcie aktualnie działającej mechaniki. Przykładowo dodanie kilku podtypów zasobów, większej liczby budynków z dodatkowymi funkcjonalnościami itp.
+
+
+Plan na przyszłość:
 
 Kolejnym krokiem będzie wprowadzenie mechanik wojskowości. Przykładowo zbudowanie budynku "koszary" odblokuje na pasku nawigacji zakładkę "wojsko" gdzie następnie za zasoby będzie można rekturować jednostki (co będzie zapisywane w bazie danych) co pozwoli na prowadzenie ataków na dedykowane do tego zadania lochy, gdzie na podstawie formuł matematycznych będą obliczać prawdopodobieństwo powodzenia, w atakch będzie mozna zdobyć między innymi zasoby ale też wspomniany w poprzednim punkcie ekwipunek.
 
