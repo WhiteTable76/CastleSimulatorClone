@@ -14,35 +14,41 @@ class VillageController extends Controller
         $resources->collectPendingResources();
 
         $village = auth()->user()->village;
+        $village->finalizujZakonczoneUlepszenia();
 
         return view('wioska', ['resources' => $resources, 'village' => $village]);
     }
 
-    public function upgradeLoggingSite()
+   public function upgradeBuilding(string $buildingType)
     {
         $resources = auth()->user()->resources;
         $village = auth()->user()->village;
 
-        $cost = $village->KosztUlepszenia();
+        $village->finalizujZakonczoneUlepszenia();
 
-        if ($resources->wood < $cost['wood']){
-            return back()->with('error', 'za mało drewna!');
+        if ($village->czyUlepszaSie($buildingType)) {
+            return back()->with('error', 'Ten budynek jest już ulepszany!');
         }
 
-        DB::transaction(function() use ($resources, $village, $cost){
+        if (!$village->czyMozeZaczacUlepszanie()) {
+            return back()->with('error', 'Możesz ulepszać tylko jeden budynek naraz!');
+        }
+
+        $cost = $village->kosztUlepszenia($buildingType);
+
+        if ($resources->wood < $cost['wood']) {
+            return back()->with('error', 'Za mało drewna!');
+        }
+
+        DB::transaction(function() use ($resources, $village, $cost, $buildingType) {
             $resources->decrement('wood', $cost['wood']);
-            $village->increment('logging_site_level');
-
-
-
+            $village->rozpocznijUlepszanie($buildingType);
         });
 
-        return back()->with('succes', 'Chata drwali ulepszona!');
+        return back()->with('success', 'Ulepszanie rozpoczęte!');
+
+
 
     }
-
-
-
-
 
 }
