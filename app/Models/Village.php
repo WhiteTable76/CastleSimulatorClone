@@ -68,7 +68,10 @@ class Village extends Model
 
     public function kiedyKoniecUlepszania(string $buildingType)
     {
-        return $this->upgrades()->where('building_type', $buildingType)->value('ends_at');
+
+    $upgrade = $this->upgrades()->where('building_type', $buildingType)->first();
+
+    return $upgrade?->ends_at;
     }
 
     public function rozpocznijUlepszanie(string $buildingType): void

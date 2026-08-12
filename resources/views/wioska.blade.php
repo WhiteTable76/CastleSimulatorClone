@@ -21,7 +21,7 @@
             <p>Ulepszanie w toku: <span id="timer-{{ $buildingType }}"></span></p>
             <script>
                 (function() {
-                    const endsAt = new Date("{{ $village->kiedyKoniecUlepszania($buildingType) }}").getTime();
+                    const endsAt = new Date("{{ $village->kiedyKoniecUlepszania($buildingType)->toIso8601String() }}").getTime();
                     const timerEl = document.getElementById('timer-{{ $buildingType }}');
 
                     function updateTimer() {

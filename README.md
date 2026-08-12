@@ -16,9 +16,9 @@ Atkualnie działa:
 
 -Po kliknięciu w przycisk budynek się ulepsza i zabiera graczowi odpowiednią ilość zasobów
 
--Ulepszenie trwa odpowiednią ilość czasu natomiast jest lekki problem z wypisaniem tego na ekranie co rozwiążę jutro
+-Ulepszenie trwa odpowiednią ilość czasu co wypisuje się na ekranie
 
--W użytkownikowi "ładuje się" ile ma danego zasobu
+-Użytkownikowi "ładuje się" ile ma danego zasobu
 
 -Prędkość zdobywania tego zasobu zależy od poziomu ulepszenia budynku związanego z tym zasobem
 
