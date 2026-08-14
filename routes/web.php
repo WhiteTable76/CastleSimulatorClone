@@ -17,26 +17,11 @@ Route::post('/login', [UserController::class, 'login']);
 
 Route::middleware('auth')->group(function(){
     Route::get('/wioska', [VillageController::class, 'Village'])->name('wioska');
+    Route::post('/village/upgrade/{buildingType}', [VillageController::class, 'upgradeBuilding'])
+        ->name('village.upgradeBuilding');
 });
 
 
 Route::middleware('auth')->group(function(){
     Route::get('/gracz', [PlayerController::class, 'Player'])->name('gracz');
 });
-
-
-Route::middleware('auth')->group(function () {
-    Route::post('/village/upgrade-logging-site',
-    [VillageController::class, 'upgradeLoggingSite'])->name('village.upgradeLoggingSite');
-});
-
-
-Route::middleware('auth')->group(function () {
-    Route::get('/village', [VillageController::class, 'Village'])->name('village');
-
-    Route::post('/village/upgrade/{buildingType}', [VillageController::class, 'upgradeBuilding'])
-        ->name('village.upgradeBuilding');
-});
-
-Route::post('/village/upgrade/{buildingType}', [VillageController::class, 'upgradeBuilding'])
-    ->name('village.upgradeBuilding');
