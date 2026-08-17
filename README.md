@@ -22,6 +22,10 @@ Atkualnie działa:
 
 -Prędkość zdobywania tego zasobu zależy od poziomu ulepszenia budynku związanego z tym zasobem
 
+-Baza danych zawiera informacje o doświadczeniu i poziomie gracza
+
+Docelowo gracz będzie otrzymywał doświadczenie za czynności podejmowane w grze (takie jak ulepszanie budynków), niektóre funkcjonalności będą się odblokowywać wraz ze zdobywaniem poziomów (przykładowo inne budynki czy mechaniki)
+
 Kolejny krok:
 
 Rozwinięcie aktualnie działającej mechaniki. Przykładowo dodanie kilku podtypów zasobów, większej liczby budynków z dodatkowymi funkcjonalnościami itp.
