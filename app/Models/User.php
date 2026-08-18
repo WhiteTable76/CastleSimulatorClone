@@ -40,5 +40,56 @@ class User extends Authenticatable
         return $this->hasOne(Village::class);
     }
 
+
+    protected static int $baseXp = 100;
+    protected static float $xpExponent = 1.5;
+
+    public function level(): int
+    {
+    $level = 1;
+
+    while ($this->experience >= $this->xpRequiredForLevel($level + 1)) {
+        $level++;
+    }
+
+    return $level;
+    }
+
+    public function xpRequiredForLevel(int $level): int
+    {
+    if ($level <= 1) {
+        return 0;
+    }
+
+    return (int) round(self::$baseXp * ($level ** self::$xpExponent));
+    }
+
+    public function xpProgressToNextLevel(): array
+    {
+    $currentLevel = $this->level();
+    $currentThreshold = $this->xpRequiredForLevel($currentLevel);
+    $nextThreshold = $this->xpRequiredForLevel($currentLevel + 1);
+
+    return [
+        'current' => $this->experience - $currentThreshold,
+        'needed' => $nextThreshold - $currentThreshold,
+    ];
+}
+
+    public function addExperience(int $amount): void
+    {
+    $levelBefore = $this->level();
+
+    $this->increment('experience', $amount);
+
+    $levelAfter = $this->fresh()->level();
+
+    if ($levelAfter > $levelBefore) {
+        event(new \App\Events\PlayerLeveledUp($this, $levelBefore, $levelAfter));
+    }
+    }
+
+
+
 }
 

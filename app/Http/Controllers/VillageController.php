@@ -45,6 +45,8 @@ class VillageController extends Controller
             $village->rozpocznijUlepszanie($buildingType);
         });
 
+        auth()->user()->addExperience(50);
+
         return back()->with('success', 'Ulepszanie rozpoczęte!');
 
 
