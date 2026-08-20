@@ -24,7 +24,9 @@ Atkualnie działa:
 
 -Baza danych zawiera informacje o doświadczeniu i poziomie gracza
 
-Docelowo gracz będzie otrzymywał doświadczenie za czynności podejmowane w grze (takie jak ulepszanie budynków), niektóre funkcjonalności będą się odblokowywać wraz ze zdobywaniem poziomów (przykładowo inne budynki czy mechaniki)
+-Gracz otrzymuje doświadczenie za czynności takie jak ulepszanie budynków
+
+Następnym krokiem będzie dodanie większej liczby budynków odpowiadających za inne funkcjonalności. 
 
 Kolejny krok:
 

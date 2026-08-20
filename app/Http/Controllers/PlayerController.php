@@ -7,6 +7,13 @@ use Illuminate\Http\Request;
 class PlayerController extends Controller
 {
         public function Player(){
-        return view('gracz');
+
+        $user = auth()->user();
+
+        return view('gracz',[
+            'user'=> $user,
+            'level'=> $user->level(),
+            'xpProgress'=> $user->xpProgressToNextLevel(),
+        ]);
     }
 }
