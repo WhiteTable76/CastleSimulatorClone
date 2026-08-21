@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Village extends Model
 {
-    protected $fillable = ['user_id', 'logging_site_level'];
+    protected $fillable = ['user_id', 'logging_site_level', 'stone_quarry_level','iron_mine_level'];
 
     protected static array $BazowyKoszt = [
         'logging_site' => ['wood' => 50]
