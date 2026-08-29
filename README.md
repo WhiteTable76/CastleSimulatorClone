@@ -26,7 +26,9 @@ Atkualnie działa:
 
 -Gracz otrzymuje doświadczenie za czynności takie jak ulepszanie budynków
 
-Następnym krokiem będzie dodanie większej liczby budynków odpowiadających za inne funkcjonalności. 
+-Wprowadzenie nowych budynków z surowcami i lekka przebudowa struktury tak by nie powtarzać kodu odpowiedzialnego za ulepszanie
+
+Następnym krokiem będzie przebudowa struktury kosztów ulepszeń i czasu tak aby można było to customizować w ramach różnych budynków co pozwoli na dalszy rozwój mechaniki.
 
 Kolejny krok:
 

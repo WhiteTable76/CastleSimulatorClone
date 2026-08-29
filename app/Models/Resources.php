@@ -18,11 +18,23 @@ class Resources extends Model
 
         $hoursPassed = $this->last_collected_at->diffInSeconds(now()) / 60;
         $woodGained = (int) floor($village->woodPerHour() * $hoursPassed);
+        $stoneGained = (int) floor($village->stonePerHour() * $hoursPassed);
+        $ironGained = (int) floor($village->ironPerHour() * $hoursPassed);
 
 
         if ($woodGained > 0)
          {
             $this->increment('wood', $woodGained);
+         }
+
+        if ($stoneGained > 0)
+         {
+            $this->increment('stone', $stoneGained);
+         }
+
+        if ($ironGained > 0)
+         {
+            $this->increment('iron', $ironGained);
          }
 
         $this->last_collected_at = now();

@@ -9,11 +9,15 @@ class Village extends Model
     protected $fillable = ['user_id', 'logging_site_level', 'stone_quarry_level','iron_mine_level'];
 
     protected static array $BazowyKoszt = [
-        'logging_site' => ['wood' => 50]
+        'logging_site' => ['wood' => 50],
+        'stone_quarry' => ['wood' => 50],
+        'iron_mine' => ['wood' => 50]
     ];
 
     protected static array $CzasBazowy =[
         'logging_site'=> 30,
+        'stone_quarry'=> 30,
+        'iron_mine'=> 30,
     ];
 
     protected float $multiplier = 1.5;
@@ -104,6 +108,16 @@ class Village extends Model
     public function woodPerHour(): float
     {
         return self::$productionBase * ($this->productionMultiplier ** ($this->logging_site_level - 1));
+    }
+
+    public function stonePerHour(): float
+    {
+        return self::$productionBase * ($this->productionMultiplier ** ($this->stone_quarry_level - 1));
+    }
+
+    public function ironPerHour(): float
+    {
+        return self::$productionBase * ($this->productionMultiplier ** ($this->iron_mine_level - 1));
     }
 
 
