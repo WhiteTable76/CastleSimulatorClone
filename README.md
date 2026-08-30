@@ -37,6 +37,8 @@ Rozwinięcie aktualnie działającej mechaniki. Przykładowo dodanie kilku podty
 
 Plan na przyszłość:
 
+Rozwój ekranu postaci gdzie gracz będzie mieć jakieś dedykowane statystyki i bonusy, prosty system ekwipunku, jakaś dodatkowa nagroda za poziomy itp. 
+
 Kolejnym krokiem będzie wprowadzenie mechanik wojskowości. Przykładowo zbudowanie budynku "koszary" odblokuje na pasku nawigacji zakładkę "wojsko" gdzie następnie za zasoby będzie można rekturować jednostki (co będzie zapisywane w bazie danych) co pozwoli na prowadzenie ataków na dedykowane do tego zadania lochy, gdzie na podstawie formuł matematycznych będą obliczać prawdopodobieństwo powodzenia, w atakch będzie mozna zdobyć między innymi zasoby ale też wspomniany w poprzednim punkcie ekwipunek.
 
 Następnym planem na przyszłość będzie wprowadzenie faktycznych interakcji sieciowych między graczami jak przynależność do sojuszy, system maili, czat w czasie rzeczywistym, czy też ataki na innych graczy z poza naszego sojuszu.
