@@ -14,6 +14,7 @@
 
 <br>
 
+<x-building-card :village="$village" building-type="town_hall" label="Ratusz" />
 <x-building-card :village="$village" building-type="logging_site" label="Tartak" />
 <x-building-card :village="$village" building-type="stone_quarry" label="Kamieniołom" />
 <x-building-card :village="$village" building-type="iron_mine" label="Kopalnia żelaza" />

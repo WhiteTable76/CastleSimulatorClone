@@ -8,17 +8,36 @@ class Village extends Model
 {
     protected $fillable = ['user_id', 'logging_site_level', 'stone_quarry_level','iron_mine_level'];
 
-    protected static array $BazowyKoszt = [
-        'logging_site' => ['wood' => 50],
-        'stone_quarry' => ['wood' => 50],
-        'iron_mine' => ['wood' => 50]
-    ];
-
-    protected static array $CzasBazowy =[
-        'logging_site'=> 30,
-        'stone_quarry'=> 30,
-        'iron_mine'=> 30,
-    ];
+protected static array $buildingConfig = [
+    'logging_site' => [
+        'base_cost' => ['wood' => 50],
+        'cost_multiplier' => 1.5,
+        'base_duration' => 30,
+        'duration_multiplier' => 1.3,
+    ],
+    'stone_quarry' => [
+        'base_cost' => ['wood' => 40],
+        'cost_multiplier' => 1.5,
+        'base_duration' => 35,
+        'duration_multiplier' => 1.3,
+        'extra_cost_from_level' => [
+            5 => ['iron' => 30],
+        ],
+    ],
+    'iron_mine' => [
+        'base_cost' => ['wood' => 60],
+        'cost_multiplier' => 1.5,
+        'base_duration' => 40,
+        'duration_multiplier' => 1.3,
+    ],
+    'town_hall' => [
+        'base_cost' => ['wood' => 100, 'stone' => 100],
+        'cost_multiplier' => 1.6,
+        'base_duration' => 30,
+        'duration_multiplier' => 1.3,
+        'duration_factor' => 4,
+    ],
+];
 
     protected float $multiplier = 1.5;
     protected float $durationMultiplier = 1.3;
@@ -33,25 +52,44 @@ class Village extends Model
     }
 
 
-    public function kosztUlepszenia(string $buildingType): array
-    {
-        $base = self::$BazowyKoszt[$buildingType] ?? ['wood' => 0];
-        $level = $this->{$buildingType . '_level'};
-        $factor = $this->multiplier ** ($level - 1);
+public function kosztUlepszenia(string $buildingType): array
+{
+    $config = self::$buildingConfig[$buildingType];
+    $targetLevel = $this->{$buildingType . '_level'} + 1;
 
-        return [
-            'wood' => (int) round($base['wood'] * $factor),
-        ];
+    $cost = [];
+    foreach ($config['base_cost'] as $resource => $baseAmount) {
+        $factor = $config['cost_multiplier'] ** ($targetLevel - 1);
+        $cost[$resource] = (int) round($baseAmount * $factor);
     }
 
-    public function czasUlepszenia(string $buildingType): int
-    {
-        $base = self::$CzasBazowy[$buildingType] ?? 30;
-        $level = $this->{$buildingType . '_level'};
-        $factor = $this->durationMultiplier ** ($level - 1);
-
-        return (int) round($base * $factor);
+    if (isset($config['extra_cost_from_level'])) {
+        foreach ($config['extra_cost_from_level'] as $unlockLevel => $extraResources) {
+            if ($targetLevel >= $unlockLevel) {
+                foreach ($extraResources as $resource => $amount) {
+                    $cost[$resource] = ($cost[$resource] ?? 0) + $amount;
+                }
+            }
+        }
     }
+
+    return $cost;
+}
+
+public function czasUlepszenia(string $buildingType): int
+{
+    $config = self::$buildingConfig[$buildingType];
+    $targetLevel = $this->{$buildingType . '_level'} + 1;
+
+    $factor = $config['duration_multiplier'] ** ($targetLevel - 1);
+    $duration = $config['base_duration'] * $factor;
+
+    if (isset($config['duration_factor'])) {
+        $duration *= $config['duration_factor'];
+    }
+
+    return (int) round($duration);
+}
 
 
     public function maxRownoczesnychUlepszen(): int

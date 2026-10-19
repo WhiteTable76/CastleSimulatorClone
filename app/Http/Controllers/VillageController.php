@@ -19,38 +19,39 @@ class VillageController extends Controller
         return view('wioska', ['resources' => $resources, 'village' => $village]);
     }
 
-   public function upgradeBuilding(string $buildingType)
-    {
-        $resources = auth()->user()->resources;
-        $village = auth()->user()->village;
+public function upgradeBuilding(string $buildingType)
+{
+    $resources = auth()->user()->resources;
+    $village = auth()->user()->village;
 
-        $village->finalizujZakonczoneUlepszenia();
+    $village->finalizujZakonczoneUlepszenia();
 
-        if ($village->czyUlepszaSie($buildingType)) {
-            return back()->with('error', 'Ten budynek jest już ulepszany!');
-        }
-
-        if (!$village->czyMozeZaczacUlepszanie()) {
-            return back()->with('error', 'Możesz ulepszać tylko jeden budynek naraz!');
-        }
-
-        $cost = $village->kosztUlepszenia($buildingType);
-
-        if ($resources->wood < $cost['wood']) {
-            return back()->with('error', 'Za mało drewna!');
-        }
-
-        DB::transaction(function() use ($resources, $village, $cost, $buildingType) {
-            $resources->decrement('wood', $cost['wood']);
-            $village->rozpocznijUlepszanie($buildingType);
-        });
-
-        auth()->user()->addExperience(50);
-
-        return back()->with('success', 'Ulepszanie rozpoczęte!');
-
-
-
+    if ($village->czyUlepszaSie($buildingType)) {
+        return back()->with('error', 'Ten budynek jest już ulepszany!');
     }
+
+    if (!$village->czyMozeZaczacUlepszanie()) {
+        return back()->with('error', 'Możesz ulepszać tylko jeden budynek naraz!');
+    }
+
+    $cost = $village->kosztUlepszenia($buildingType);
+
+    foreach ($cost as $resource => $amount) {
+        if ($resources->{$resource} < $amount) {
+            return back()->with('error', 'Za mało surowców!');
+        }
+    }
+
+    DB::transaction(function() use ($resources, $village, $cost, $buildingType) {
+        foreach ($cost as $resource => $amount) {
+            $resources->decrement($resource, $amount);
+        }
+        $village->rozpocznijUlepszanie($buildingType);
+    });
+
+    auth()->user()->addExperience(50);
+
+    return back()->with('success', 'Ulepszanie rozpoczęte!');
+}
 
 }

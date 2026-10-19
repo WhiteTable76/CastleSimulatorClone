@@ -30,8 +30,12 @@
     @elseif (!$village->czyMozeZaczacUlepszanie())
         <p style="color: gray;">Trwa ulepszanie innego budynku.</p>
     @else
-        @php $cost = $village->kosztUlepszenia($buildingType); @endphp
-        <p>Koszt: {{ $cost['wood'] }} drewna, czas: {{ $village->czasUlepszenia($buildingType) }}s</p>
+       @php $cost = $village->kosztUlepszenia($buildingType); @endphp
+    <p>Koszt:
+    @foreach ($cost as $resource => $amount)
+        {{ $amount }} {{ $resource }}{{ !$loop->last ? ', ' : '' }}
+    @endforeach
+    </p>
 
         <form action="{{ route('village.upgradeBuilding', $buildingType) }}" method="POST">
             @csrf

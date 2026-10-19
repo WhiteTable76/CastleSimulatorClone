@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('name')->default('Wioska');
+            $table->integer('town_hall_level')->default(1);
             $table->integer('logging_site_level')->default(1);
             $table->integer('stone_quarry_level')->default(1);
             $table->integer('iron_mine_level')->default(1);

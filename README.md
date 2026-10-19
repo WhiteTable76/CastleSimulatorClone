@@ -28,9 +28,13 @@ Atkualnie działa:
 
 -Wprowadzenie nowych budynków z surowcami i lekka przebudowa struktury tak by nie powtarzać kodu odpowiedzialnego za ulepszanie
 
-Następnym krokiem będzie przebudowa struktury kosztów ulepszeń i czasu tak aby można było to customizować w ramach różnych budynków co pozwoli na dalszy rozwój mechaniki.
+-Struktura została przebudowana tak by można było customizować każdy budynek bez większych problemów w ramach tabeli
+
+-Dodano ratusz, który jeszcze nie działa. 
 
 Kolejny krok:
+
+Docelowo ratusz zapewniać będzie bonusy i będzie stanowił stały punkt odniesienia w postępie. To jest pozostałe bydunki nie mogą mieć wyższego poziomu niż ratusz. 
 
 Rozwinięcie aktualnie działającej mechaniki. Przykładowo dodanie kilku podtypów zasobów, większej liczby budynków z dodatkowymi funkcjonalnościami itp.
 
