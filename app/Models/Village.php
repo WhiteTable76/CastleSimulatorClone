@@ -9,6 +9,15 @@ class Village extends Model
     protected $fillable = ['user_id', 'logging_site_level', 'stone_quarry_level','iron_mine_level'];
 
 protected static array $buildingConfig = [
+
+    'town_hall' => [
+        'base_cost' => ['wood' => 100, 'stone' => 100],
+        'cost_multiplier' => 1.6,
+        'base_duration' => 30,
+        'duration_multiplier' => 1.3,
+        'duration_factor' => 4,
+    ],
+
     'logging_site' => [
         'base_cost' => ['wood' => 50],
         'cost_multiplier' => 1.5,
@@ -30,13 +39,7 @@ protected static array $buildingConfig = [
         'base_duration' => 40,
         'duration_multiplier' => 1.3,
     ],
-    'town_hall' => [
-        'base_cost' => ['wood' => 100, 'stone' => 100],
-        'cost_multiplier' => 1.6,
-        'base_duration' => 30,
-        'duration_multiplier' => 1.3,
-        'duration_factor' => 4,
-    ],
+
 ];
 
     protected float $multiplier = 1.5;
